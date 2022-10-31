@@ -9,8 +9,8 @@ from transformers import pipeline
 model_name = 'allenai/scibert_scivocab_uncased'
 save_model_name = 'scibert_uncase'
 file_prefix = 'train'
-num_of_files = 11
-exp_name = 'train1_'+str(num_of_files)+'_l8_non0_'
+num_of_files = 10
+exp_name = 'train_'+str(num_of_files)+'_l8_non0_'
 
 dict_strs = ["MethodName",
 "HyperparameterName",
@@ -45,45 +45,44 @@ features_out_hook=[]
 line_splits = [] # start and end of a token
 lines_token = [] # tokens
 lines_input_str = [] # input strs
-for file_id in range(1,num_of_files+1):
-    file_name = file_prefix +str(file_id)
-    file_path = 'raw_txt/'+file_name+'.txt'
-    with open(file_path,'r', encoding="utf-8") as f:
-        all_str = f.read()
-    lines = all_str.split('\n\n')
+file_name = 'train.conll'
+file_path = 'raw_txt/'+file_name
+with open(file_path, 'r', encoding="utf-8") as f:
+    all_str = f.read()
+lines = all_str.split('\n\n')
 
-    for line in lines:
-        if(len(line))<1:
+for line in lines:
+    if(len(line))<1:
+        continue
+    tmp = [0]
+    tmp_splits = [[0,1]]
+    cnt = 1
+    tmp_cnt = cnt
+    token_pair = line.split('\n')
+    token_str = []
+    for tokens in token_pair:
+        try:
+            token, label = tokens.split(' ')
+        except:
             continue
-        tmp = [0]
-        tmp_splits = [[0,1]]
-        cnt = 1
-        tmp_cnt = cnt
-        token_pair = line.split('\n')
-        token_str = []
-        for tokens in token_pair:
-            try:
-                token, label = tokens.split(' ')
-            except:
-                continue
-            if label not in dict_annot:
-                print(label, file_name)
-                continue
-            for i in range(1,len(tokenizer.encode(token))-1):
-                tmp.append(dict_annot[label])
-                tmp_cnt+=1
-            tmp_splits.append([cnt, tmp_cnt])
-            cnt = tmp_cnt
-            token_str.append(token)
-            # if tmp_cnt >=500:
-            #     break;
-        tmp.append(0)
-        tmp_splits.append([cnt, cnt+1])
-        if(len(tmp)) <3:
+        if label not in dict_annot:
+            print(label, file_name)
             continue
-        lines_token.append(np.array(tmp))
-        lines_input_str.append(' '.join(token_str))
-        line_splits.append(np.array(tmp_splits))
+        for i in range(1,len(tokenizer.encode(token))-1):
+            tmp.append(dict_annot[label])
+            tmp_cnt+=1
+        tmp_splits.append([cnt, tmp_cnt])
+        cnt = tmp_cnt
+        token_str.append(token)
+        # if tmp_cnt >=500:
+        #     break;
+    tmp.append(0)
+    tmp_splits.append([cnt, cnt+1])
+    if(len(tmp)) <3:
+        continue
+    lines_token.append(np.array(tmp))
+    lines_input_str.append(' '.join(token_str))
+    line_splits.append(np.array(tmp_splits))
 
 lines_split_new = []
 lines_token_new = []
