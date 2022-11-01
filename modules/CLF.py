@@ -12,11 +12,9 @@ class CLF_TDNN(nn.Module):
         self.conv3_out = 256
         self.ln1_out = 128
         self.conv1 = nn.Conv1d(in_channels= in_features, out_channels= self.conv1_out, kernel_size= 3, padding=1)
-        self.conv2 = nn.Conv1d(in_channels= self.conv1_out, out_channels= self.conv2_out, kernel_size= 3, padding=1)
-        self.conv3 = nn.Conv1d(in_channels= self.conv2_out, out_channels= self.conv3_out, kernel_size= 3, padding=1)
+        self.conv3 = nn.Conv1d(in_channels= self.conv3_out, out_channels= self.conv3_out, kernel_size= 3, padding=1)
         self.nonLinear = nn.LeakyReLU()
         self.bn1 = nn.BatchNorm1d(self.conv1_out)
-        self.bn2 = nn.BatchNorm1d(self.conv2_out)
         self.bn3 = nn.BatchNorm1d(self.conv3_out)
         self.clf = torch.nn.Linear(self.conv3_out, self.ln1_out)
         self.clf2 = torch.nn.Linear(self.ln1_out,out_features)
@@ -28,10 +26,6 @@ class CLF_TDNN(nn.Module):
         x = self.conv1(x)
         x = self.nonLinear(x)
         x = self.bn1(x)
-        # x = self.conv2(x)
-        # x = self.nonLinear(x)
-        # x = self.bn2(x)
-        # shortcut = x
         x = self.conv3(x)
         x = self.nonLinear(x)
         x = self.bn3(x)
