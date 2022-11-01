@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2889f46-71c2-4fae-9cfb-41d1c7ff6644" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/confusion_matrix.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/confusion_matrix.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/conll2npy_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/conll2npy_eval.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/conll2npy_train.py" beforeDir="false" afterPath="$PROJECT_DIR$/conll2npy_train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/train_10_l8_non0_scibert_uncase.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/train_10_l8_non0_scibert_uncase.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/CLF.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/CLF.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prediction2conll.py" beforeDir="false" afterPath="$PROJECT_DIR$/prediction2conll.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/raw_txt/test.conll" beforeDir="false" afterPath="$PROJECT_DIR$/raw_txt/test.conll" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,15 +29,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Code/CMU/11711/11711-hw2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Code/CMU/11711/11711-hw2_final/11711-hw2",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Code\CMU\11711\hw2_canvas\Code\raw_txt" />
@@ -69,6 +79,7 @@
       <workItem from="1667245720683" duration="1074000" />
       <workItem from="1667247080202" duration="183000" />
       <workItem from="1667247299225" duration="90000" />
+      <workItem from="1667269691662" duration="2132000" />
     </task>
     <servers />
   </component>

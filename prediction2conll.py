@@ -1,6 +1,6 @@
 import numpy as np
 pred_labels = np.load('outputs/scibert_uncase/test_predict_159.npy',allow_pickle=True)
-dataset = np.load('data/test_submit_scibert_uncase.npy',allow_pickle=True)
+dataset = np.load('data/submission_scibert_uncase.npy',allow_pickle=True)
 for i in range(len(pred_labels)):
     len1 = len(pred_labels[i])
     len2 = dataset[i][1][-1][-1]

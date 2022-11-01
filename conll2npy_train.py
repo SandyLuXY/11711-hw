@@ -4,10 +4,12 @@ import torch
 from transformers import AutoTokenizer, AutoModelForTokenClassification
 from transformers import pipeline
 
-# model_name = 'dslim/bert-base-NER'
-# save_model_name = 'nerbert'
-model_name = 'allenai/scibert_scivocab_uncased'
-save_model_name = 'scibert_uncase'
+if sys.argv[1]== 'sci':
+    model_name = 'allenai/scibert_scivocab_uncased'
+    save_model_name = 'scibert_uncase'
+else:
+    model_name = 'dslim/bert-base-NER'
+    save_model_name = 'nerbert'
 file_prefix = 'train'
 num_of_files = 10
 exp_name = 'train_'+str(num_of_files)+'_l8_non0_'
@@ -43,6 +45,7 @@ nlp = pipeline("ner", model=model, tokenizer=tokenizer, device = 0)
 features_in_hook=[]
 features_out_hook=[]
 line_splits = [] # start and end of a token
+labels_per_line = []
 lines_token = [] # tokens
 lines_input_str = [] # input strs
 file_name = 'train.conll'
@@ -60,6 +63,7 @@ for line in lines:
     tmp_cnt = cnt
     token_pair = line.split('\n')
     token_str = []
+    label_lin = []
     for tokens in token_pair:
         try:
             token, label = tokens.split(' ')
@@ -74,12 +78,14 @@ for line in lines:
         tmp_splits.append([cnt, tmp_cnt])
         cnt = tmp_cnt
         token_str.append(token)
+        label_lin.append(dict_annot[label])
         # if tmp_cnt >=500:
         #     break;
     tmp.append(0)
     tmp_splits.append([cnt, cnt+1])
     if(len(tmp)) <3:
         continue
+    labels_per_line.append(label_lin)
     lines_token.append(np.array(tmp))
     lines_input_str.append(' '.join(token_str))
     line_splits.append(np.array(tmp_splits))
@@ -87,12 +93,14 @@ for line in lines:
 lines_split_new = []
 lines_token_new = []
 lines_input_str_new = []
+labels_per_line_new = []
 
 for i in range(len(lines_token)):
     if np.sum(lines_token[i])!=0:
         lines_split_new.append(line_splits[i])
         lines_token_new.append(lines_token[i])
         lines_input_str_new.append(lines_input_str[i])
+        labels_per_line_new.append(labels_per_line[i])
 
 dataset = []
 # 0 feats, 1 start end, 2 token, 3 input text
@@ -102,11 +110,16 @@ for i in range(len(lines_input_str_new)):
     try:
         nlp(line_tmp)
     except:
+        print(i)
         skipped_ids.append(i)
         features_out_hook.append([0])
         continue
+    if len(features_out_hook[i][0]) == 512:
+        print(i)
+        skipped_ids.append(i)
 for i in range(len(lines_split_new)):
     if i in skipped_ids:
         continue
-    dataset.append([features_out_hook[i][0].cpu().numpy(), lines_split_new[i], lines_token_new[i], lines_input_str_new[i]])
+    dataset.append([features_out_hook[i][0].cpu().numpy(), lines_split_new[i], lines_token_new[i], lines_input_str_new[i], labels_per_line_new[i]])
 np.save('data/' + exp_name + save_model_name, dataset, allow_pickle=True)
+np.save('data/skipped_ids_' + exp_name + save_model_name, skipped_ids, allow_pickle=True)
