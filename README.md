@@ -12,6 +12,12 @@ pip install -U scikit-learn
 In our project, we conduct experiments on PyTorch 1.12.1 with cuda11.3
 
 ## Data preparation
+### crawling data
+```bash
+./crawler.sh
+```
+one can change the url corresponding to their needs in the script.
+
 ### PDF to CoNLL
 ```bash
 python python pdf2coll.py pdf_pth conll_sav_pth sentence_sav_pth

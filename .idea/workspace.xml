@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c2889f46-71c2-4fae-9cfb-41d1c7ff6644" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/crawler.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/confusion_matrix.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/confusion_matrix.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conll2npy_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/conll2npy_eval.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conll2npy_train.py" beforeDir="false" afterPath="$PROJECT_DIR$/conll2npy_train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/train_10_l8_non0_scibert_uncase.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/train_10_l8_non0_scibert_uncase.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/CLF.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/CLF.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prediction2conll.py" beforeDir="false" afterPath="$PROJECT_DIR$/prediction2conll.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/raw_txt/test.conll" beforeDir="false" afterPath="$PROJECT_DIR$/raw_txt/test.conll" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +72,7 @@
       <workItem from="1667245720683" duration="1074000" />
       <workItem from="1667247080202" duration="183000" />
       <workItem from="1667247299225" duration="90000" />
-      <workItem from="1667269691662" duration="2132000" />
+      <workItem from="1667269691662" duration="2741000" />
     </task>
     <servers />
   </component>
