@@ -3,6 +3,9 @@
 ## Group Member: 
 ### Tinglong Zhu (tinglonz), Haozhe Zhang (haozhez2), Xinyu Lu (xinyulu2)
 
+## Teamwork:
+Haozhe, Tinglong and Xinyu contributed equally to the assignment. For the collecting raw data part, Tinglong wrote the crawler to download PDFs from the ACL website, and Haozhe wrote the script to extract sentences line-by-line and tokenize the data. For the data annotation part, Haozhe annotated 5 articles, Tinglong annotated 1 article and Xinyu annotated 6 articles. For the model training part, Tinglong developed the bert-base-NER+LC, bert-base-NER+TDNN, SciBERT+LC and SciBERT+TDNN models, and he also tried using CNN layers. Xinyu developed the bert-base-NER+LC and bert-base-uncased+LC models. Tinglong organized the code and wrote the instructions of how to run the code. For the report, Haozhe wrote the data collection and comparative analysis parts, Tinglong wrote the model details part, and Xinyu wrote the data collection and experiments part.
+
 ## Environment Setup
 ```bash
 pip install spacy PyPDF2
