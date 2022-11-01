@@ -61,3 +61,6 @@ python prediction2conll.py
 python prediction2conll_eval.py
 ```
 One can change the saved prediction and output filename path in these two python scripts
+
+## Analysis & Graphs
+One can refer to the `confusion_matrix.ipynb`.
