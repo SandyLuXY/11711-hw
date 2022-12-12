@@ -1,0 +1,9 @@
+Ekman Emotion,Precision,Recall,F1
+anger,0.53,0.57,0.55
+disgust,0.52,0.37,0.44
+fear,0.72,0.57,0.64
+joy,0.80,0.86,0.82
+neutral,0.64,0.66,0.65
+sadness,0.60,0.54,0.57
+surprise,0.59,0.58,0.58
+macro_avg,0.63,0.59,0.61
